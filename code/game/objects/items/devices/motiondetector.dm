@@ -1,6 +1,6 @@
 /obj/item/device/motiondetector
 	name = "motion detector"
-	icon = 'motiondetector.dmi'
+	icon = 'icons/motiondetector.dmi'
 	icon_state = "off"
 	flags = FPRINT | TABLEPASS| CONDUCT
 	slot_flags = SLOT_BELT
@@ -17,7 +17,7 @@ mob/var/tracker_position = null
 mob/var/current_detector = null
 
 /obj/item/device/motiondetector/attack_self(mob/user as mob)
-	CreateDetectorImage(user, 'detectorscreen.dmi')
+	CreateDetectorImage(user, 'icons/detectorscreen.dmi')
 	ToggleDetector(user)
 
 /obj/item/device/motiondetector/proc/CreateDetectorImage(mob/user,image) //Creates the animated detector background
@@ -68,7 +68,7 @@ mob/var/current_detector = null
 				flick("blip", o)
 			detected = null
 			if(detector_ping)
-				playsound(src.loc, 'detector.ogg', 150) //If player isn't the only blip, play ping
+				playsound(src.loc, 'sound/effects/detector.ogg', 150) //If player isn't the only blip, play ping
 		flick("", detector_image)
 		sleep(4)
 	active = 0
@@ -106,7 +106,7 @@ mob/var/current_detector = null
 		winshow(user,"detectorwindow",1)
 
 obj/Blip
-	icon = 'detector-blips.dmi'
+	icon = 'icons/detector-blips.dmi'
 	icon_state = "blip"
 	layer = 5
 obj/Blip/unpooled()
