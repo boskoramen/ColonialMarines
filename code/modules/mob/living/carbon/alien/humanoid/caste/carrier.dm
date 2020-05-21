@@ -80,12 +80,12 @@
 			T = input(src, "Who should you throw at?") as null|anything in victims
 
 		if(T)
-			var/obj/item/clothing/mask/facehugger/throw = new()
+			var/obj/item/clothing/mask/facehugger/thrown_hugger = new()
 			facehuggers -= 1
 			usedthrow = 1
-			throw.loc = src.loc
-			throw.throw_at(T, 5, THROWSPEED)
-			src << "We throw a facehugger at [throw]"
+			thrown_hugger.loc = src.loc
+			thrown_hugger.throw_at(T, 5, THROWSPEED)
+			src << "We throw a facehugger at [T]"
 			visible_message("\red <B>[src] throws something towards [T]!</B>")
 
 		else
